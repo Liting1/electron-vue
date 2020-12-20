@@ -1,0 +1,98 @@
+{
+    "name": "electron-vue",
+    "version": "1.0.1",
+    "description": "",
+    "main": "./app/main.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "node ./builder/dev.js",
+        "build": "node ./builder/build.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "vue": "^2.6.12"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.12.10",
+        "@babel/plugin-transform-runtime": "^7.12.10",
+        "@babel/preset-env": "^7.12.11",
+        "archiver": "^5.1.0",
+        "babel-loader": "^8.2.2",
+        "chalk": "^4.1.0",
+        "clean-webpack-plugin": "^3.0.0",
+        "copy-webpack-plugin": "^7.0.0",
+        "core-js": "^3.8.1",
+        "css-loader": "^5.0.1",
+        "del": "^6.0.0",
+        "electron": "^11.1.0",
+        "electron-builder": "^22.9.1",
+        "electron-dev-webpack-plugin": "^1.0.5",
+        "file-loader": "^6.2.0",
+        "html-webpack-plugin": "^4.5.0",
+        "mini-css-extract-plugin": "^1.3.3",
+        "node-loader": "^1.0.2",
+        "node-sass": "^5.0.0",
+        "sass-loader": "^10.1.0",
+        "style-loader": "^2.0.0",
+        "url-loader": "^4.1.1",
+        "vue-loader": "^15.9.6",
+        "vue-style-loader": "^4.1.2",
+        "vue-template-compiler": "^2.6.12",
+        "webpack": "^5.11.0",
+        "webpack-bundle-analyzer": "^4.3.0",
+        "webpack-cli": "^4.2.0",
+        "webpack-dev-server": "^3.11.0"
+    },
+    "build": {
+        "asar": true,
+        "productName": "Electron+vue",
+        "appId": "com.electron.template",
+        "copyright": "Copyright © year motou",
+        "directories": {
+            "output": "pack"
+        },
+        "files": [
+            "app/**"
+        ],
+        "mac": {
+            "identity": "com.electron.template",
+            "target": [
+                "dmg"
+            ],
+            "artifactName": "${productName}.${ext}",
+            "icon": "./icon.jpg"
+        },
+        "dmg": {
+            "title": "${productName}",
+            "artifactName": "${productName}.${ext}",
+            "icon": "./icon.jpg"
+        },
+        "win": {
+            "legalTrademarks": "Copyright © year motou",
+            "publisherName": "electron",
+            "requestedExecutionLevel": "highestAvailable",
+            "target": [
+                {
+                    "target": "nsis",
+                    "arch": [
+                        "x64"
+                    ]
+                }
+            ],
+            "artifactName": "${productName}.${ext}",
+            "icon": "./icon.jpg"
+        },
+        "nsis": {
+            "oneClick": false,
+            "createDesktopShortcut": "always",
+            "allowToChangeInstallationDirectory": true,
+            "perMachine": true,
+            "allowElevation": true,
+            "artifactName": "${productName}-V${version}.${ext}",
+            "runAfterFinish": true,
+            "shortcutName": "electron+vue"
+        }
+    }
+}
